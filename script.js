@@ -11,7 +11,7 @@ function displayNumber(e) {
         localStorage.setItem('equals', '1');
         return;
     }
-    for (i=0; i<10; i++) {
+    for (i = 0; i < 10; i++) {
         if (i == e.id) {
             question.textContent += `${parseInt(e.id)}`;
         }
@@ -30,13 +30,20 @@ function actions(e) {
         question.textContent = " ";
         answer.textContent = " ";
     } else if (e.id === 'plus') {
-        question.textContent += "+"; 
+        question.textContent += "+";
     } else if (e.id === 'minus') {
-        question.textContent += "-"; 
+        question.textContent += "-";
     } else if (e.id === 'multiply') {
-        question.textContent += "*"; 
+        question.textContent += "*";
+    } else if (e.id === 'divide') {
+        question.textContent += "/";
     } else {
-        question.textContent += "/"; 
+        let currentText = question.textContent;
+        if (currentText.length > 0) {
+            // Remove the last character
+            let newText = currentText.slice(0, -1);
+            question.textContent = newText;
+        }
     }
 }
 
